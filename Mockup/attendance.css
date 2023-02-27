@@ -1,0 +1,41 @@
+.header-box {
+    background-color: #FE655C;
+    color: white;
+    margin: 5px;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+
+}
+
+table,
+th,
+td {
+    border: 1px solid black !important;
+}
+
+th {
+
+    width: 100px;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    width: 200px;
+    background-color: #80AEE0;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center
+}
