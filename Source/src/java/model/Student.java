@@ -5,12 +5,14 @@
 package model;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  *
  * @author MinhDuy
  */
 public class Student {
+
     private int studentID;
     private String rollNumber;
     private String firstName;
@@ -20,11 +22,12 @@ public class Student {
     private String address;
     private int telephone;
     private String email;
+    ArrayList<Group> group;
 
     public Student() {
     }
 
-    public Student(int studentID, String rollNumber, String firstName, String lastName, Date dob, boolean gender, String address, int telephone, String email) {
+    public Student(int studentID, String rollNumber, String firstName, String lastName, Date dob, boolean gender, String address, int telephone, String email, ArrayList<Group> group) {
         this.studentID = studentID;
         this.rollNumber = rollNumber;
         this.firstName = firstName;
@@ -34,6 +37,7 @@ public class Student {
         this.address = address;
         this.telephone = telephone;
         this.email = email;
+        this.group = group;
     }
 
     public int getStudentID() {
@@ -107,8 +111,13 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
-    
-    
+
+    public ArrayList<Group> getGroup() {
+        return group;
+    }
+
+    public void setGroup(ArrayList<Group> group) {
+        this.group = group;
+    }
+
 }
