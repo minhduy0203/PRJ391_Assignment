@@ -4,6 +4,8 @@
  */
 package controller.student;
 
+import dal.DBContext;
+import dal.LectureDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +20,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import model.Lecture;
 
 /**
  *
@@ -33,6 +36,9 @@ public class TimeTableController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         handleDate(req, resp);
+        LectureDBContext lectureDB = new LectureDBContext();
+        ArrayList<Lecture> listLectures = lectureDB.getByDate("", "", 1);
+        req.setAttribute("listLec", listLectures);
         req.getRequestDispatcher("../view/student/timetable.jsp").forward(req, resp);
     }
 

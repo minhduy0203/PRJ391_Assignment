@@ -6,6 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +29,7 @@
         <div class="main">
             <div class="container">
                 <div class="header-container">
-                    
+
                     <div class="header-box">Nguyễn Minh Duy</div>
                     <div class="header-box">Campus Hòa lạc </div>
                     <div class="header-box">Logout</div>
@@ -90,78 +91,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Slot1</td>
-                                    <td>
-                                        <span><strong>PRJ301 At BE-304</strong></span><br>
-                                        <div class="time-label">7:30 - 9:50</div>
-                                        <span style="color: green;">(attended)</span>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr >
-                                    <td>Slot2</td>
-                                    <td>  <span><strong>PRJ301 At BE-304</strong></span><br>
-                                        <div class="time-label">7:30 - 9:50</div><br>
-                                        <span style="color: red;">(absent)</span></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Slot3</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Slot4</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Slot5</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Slot6</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+
+
+                                <c:forEach varStatus="loop" begin="1" end="6" step="1">
+                                    <tr>
+                                        <td>Slot${loop.index}</td>
+                                        <c:forEach varStatus="i" begin="2" end="8" step="1">
+                                            <td>
+                                                <c:forEach items="${listLec}" var="lecture" >
+                                                    <c:if test="${loop.index == lecture.timeSlot.slotID }">
+                                                        <c:if test="${lecture.weekDay == i.index ? true : false}">
+                                                            <span><strong>${lecture.group.course.code} At ${lecture.room.name}</strong></span><br>
+                                                            <div class="time-label">
+                                                                <fmt:formatDate value="${lecture.timeSlot.timeFrom}" pattern="hh:mm"></fmt:formatDate> -
+                                                                <fmt:formatDate value="${lecture.timeSlot.timeTo}" pattern="hh:mm"></fmt:formatDate>
+                                                            </div><br>
+                                                            <span style="color: red;">${lecture.status == null ? "Not yet" : (lecture.status ? "attend" : "absent")}</span>
+                                                        </c:if>
+
+                                                    </c:if>
+                                                </c:forEach>
+
+                                            </td>
+                                        </c:forEach>
+                                    </tr>
+                                </c:forEach>
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            <div>
+                <c:forEach items="${listLec}" var="lecture" >
+                    <h1>${lecture.room.name}-${lecture.group.course.code}-${lecture.timeSlot.slotID} -${lecture.timeSlot.timeFrom} - ${lecture.timeSlot.timeTo} - ${lecture.status == null ? "not yet" : (lecture.status ? "attend" : "absent")} - ${lecture.timeSlot.slotID} - ${lecture.weekDay}</h1>
 
+                </c:forEach>
+            </div>
             <div class="footer container">
                 <div class="footer-describe">
                     More note / Chú thích thêm:<br>
@@ -180,8 +146,8 @@
             function handleSubmit() {
                 document.getElementById("myForm").submit();
             }
-            
-            
+
+
         </script>
     </body>
 </html>

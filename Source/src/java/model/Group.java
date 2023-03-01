@@ -13,17 +13,24 @@ import java.util.ArrayList;
 public class Group {
     private int groupID;
     private String name;
-    private int courseID;
+    private Course course;
     private int instructorID;
-    ArrayList<Student> studentGroup;
+    private ArrayList<Student> studentGroup;
 
-    public Group(int groupID, String name, int courseID, int instructorID, ArrayList<Student> studentGroup) {
+    public Group(int groupID, String name, Course course, int instructorID, ArrayList<Student> studentGroup) {
         this.groupID = groupID;
         this.name = name;
-        this.courseID = courseID;
+        this.course = course;
         this.instructorID = instructorID;
         this.studentGroup = studentGroup;
     }
+
+    
+
+    public Group() {
+    }
+    
+    
 
     public int getGroupID() {
         return groupID;
@@ -41,13 +48,15 @@ public class Group {
         this.name = name;
     }
 
-    public int getCourseID() {
-        return courseID;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourseID(int courseID) {
-        this.courseID = courseID;
+    public void setCourse(Course course) {
+        this.course = course;
     }
+
+   
 
     public int getInstructorID() {
         return instructorID;

@@ -5,6 +5,9 @@
         <group>
             <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/controller/student/TimeTableController.java</file>
             <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/web/view/student/timetable.jsp</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/model/Lecture.java</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/model/TimeSlot.java</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/dal/LectureDBContext.java</file>
         </group>
     </open-files>
 </project-private>

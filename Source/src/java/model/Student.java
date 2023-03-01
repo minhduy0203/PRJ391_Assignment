@@ -22,7 +22,8 @@ public class Student {
     private String address;
     private int telephone;
     private String email;
-    ArrayList<Group> group;
+    private ArrayList<Group> group;
+    private ArrayList<Lecture> lecture;
 
     public Student() {
     }
