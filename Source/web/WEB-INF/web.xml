@@ -4,9 +4,25 @@
         <servlet-name>TimeTableServlet</servlet-name>
         <servlet-class>controller.student.TimeTableController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>controller.authentication.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogOutController</servlet-name>
+        <servlet-class>controller.authentication.LogOutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TimeTableServlet</servlet-name>
         <url-pattern>/student/time</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
