@@ -30,7 +30,7 @@
             <div class="container">
                 <div class="header-container">
 
-                    <div class="header-box">Nguyễn Minh Duy</div>
+                    <div class="header-box">${sessionScope.user.student.lastName} ${sessionScope.user.student.firstName}</div>
                     <div class="header-box">Campus Hòa lạc </div>
                     <div class="header-box">Logout</div>
                     <img src="" alt="">
@@ -38,7 +38,7 @@
                 <div class="description">
 
 
-                    <h1> Activities for DuyNMHE172040 (Nguyễn Minh Duy)</h1><br>
+                    <h1> Activities for ${sessionScope.user.student.rollNumber} (${sessionScope.user.student.lastName} ${sessionScope.user.student.firstName})</h1><br>
                     Note: These activities do not include extra-curriculum activities, such as club activities ...<br>
                     Chú thích: Các hoạt động trong bảng dưới không bao gồm hoạt động ngoại khóa, ví dụ như hoạt động câu lạc
                     bộ ...<br>
@@ -106,7 +106,10 @@
                                                                 <fmt:formatDate value="${lecture.timeSlot.timeFrom}" pattern="hh:mm"></fmt:formatDate> -
                                                                 <fmt:formatDate value="${lecture.timeSlot.timeTo}" pattern="hh:mm"></fmt:formatDate>
                                                             </div><br>
-                                                            <span style="color: red;">${lecture.status == null ? "Not yet" : (lecture.status ? "attend" : "absent")}</span>
+                                                                <c:if test="${lecture.status == null}"><span style="color: red;">Not yet</span></c:if>
+                                                                <c:if test="${lecture.status != null}">
+                                                                    ${lecture.status ? "<span style = \"color: green\">attend</span>" : "<span style = \"color: red\" >absent</span>"  }
+                                                                </c:if>
                                                         </c:if>
 
                                                     </c:if>
@@ -127,6 +130,7 @@
                     <h1>${lecture.room.name}-${lecture.group.course.code}-${lecture.timeSlot.slotID} -${lecture.timeSlot.timeFrom} - ${lecture.timeSlot.timeTo} - ${lecture.status == null ? "not yet" : (lecture.status ? "attend" : "absent")} - ${lecture.timeSlot.slotID} - ${lecture.weekDay}</h1>
 
                 </c:forEach>
+               
             </div>
             <div class="footer container">
                 <div class="footer-describe">

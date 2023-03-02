@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/controller/student/TimeTableController.java</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/web/view/student/timetable.jsp</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/controller/authentication/LoginController.java</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/web/hello.jsp</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/model/Student.java</file>
+        </group>
     </open-files>
 </project-private>

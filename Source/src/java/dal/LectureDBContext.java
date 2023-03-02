@@ -4,6 +4,7 @@
  */
 package dal;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,9 +64,12 @@ public class LectureDBContext extends DBContext<Lecture> {
                     + "INNER JOIN Course ON [Group].CourseID = Course.CourseID\n"
                     + "\n"
                     + ") \n"
-                    + " WHERE date between '2023-02-27' AND '2023-03-05' AND Attendancne.StudentID = 1\n"
+                    + " WHERE date between ? AND ? AND Attendancne.StudentID = ?\n"
                     + " ORDER BY SlotID ,Date";
             stm = connection.prepareStatement(sql);
+            stm.setDate(1, Date.valueOf(dateFrom));
+            stm.setDate(2, Date.valueOf(dateTo));
+            stm.setInt(3, studentID);
             rs = stm.executeQuery();
             while (rs.next()) {
                 Lecture l = new Lecture();
@@ -94,7 +98,7 @@ public class LectureDBContext extends DBContext<Lecture> {
                 room.setRoomID(rs.getInt("RoomID"));
                 //
                 l.setLectureID(rs.getInt("LectureID"));
-                Boolean b = rs.getObject("Status") != null ? rs.getBoolean("Status"): null;
+                Boolean b = rs.getObject("Status") != null ? rs.getBoolean("Status") : null;
                 l.setStatus(b);
                 l.setGroup(gr);
                 l.setRoom(room);
