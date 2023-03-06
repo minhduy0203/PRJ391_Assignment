@@ -4,6 +4,7 @@
  */
 package controller.student;
 
+import controller.authentication.BaseRequiredAuthenticationStudent;
 import dal.DBContext;
 import dal.LectureDBContext;
 import jakarta.servlet.ServletException;
@@ -28,14 +29,14 @@ import model.User;
  *
  * @author MinhDuy
  */
-public class TimeTableController extends HttpServlet {
+public class TimeTableController extends BaseRequiredAuthenticationStudent {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp , User user) throws ServletException, IOException {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp, User user) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User u = (User) session.getAttribute("user");
         handleDate(req, resp);
@@ -130,7 +131,7 @@ public class TimeTableController extends HttpServlet {
         }
         req.setAttribute("yearCurrent", year);
         req.setAttribute("list", list);
-        if (req.getParameter("date") == null || year_raw.equals("2023")) {
+        if (req.getParameter("date") == null) {
             int currentWeek = getCurrentWeek();
             ArrayList<String> allDay = getEachDayByWeek(currentWeek, year);
             req.setAttribute("current", currentWeek);
