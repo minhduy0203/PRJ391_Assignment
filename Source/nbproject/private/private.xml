@@ -4,10 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/controller/student/TimeTableController.java</file>
-            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/web/view/student/timetable.jsp</file>
-            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/controller/authentication/LoginController.java</file>
-            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/web/hello.jsp</file>
-            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/model/Student.java</file>
+            <file>file:/C:/Users/minhd/Documents/GitHub/PRJ391_Assignment/Source/src/java/dal/DBContext.java</file>
         </group>
     </open-files>
 </project-private>

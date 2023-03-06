@@ -92,8 +92,9 @@ public class TimeTableController extends HttpServlet {
 
     }
 
-    public static ArrayList<String> getEachDayByWeek(int weekNumber) {
-        Calendar cal = Calendar.getInstance();
+    public static ArrayList<String> getEachDayByWeek(int weekNumber, int year) {
+        Calendar cal = Calendar.getInstance(Locale.GERMANY);
+        cal.set(Calendar.YEAR, year);
         cal.set(Calendar.WEEK_OF_YEAR, weekNumber);
         cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
         ArrayList<String> list = new ArrayList<>();
@@ -129,14 +130,15 @@ public class TimeTableController extends HttpServlet {
         }
         req.setAttribute("yearCurrent", year);
         req.setAttribute("list", list);
-        if (req.getParameter("date") == null || year_raw == "2023") {
+        if (req.getParameter("date") == null || year_raw.equals("2023")) {
             int currentWeek = getCurrentWeek();
-            ArrayList<String> allDay = getEachDayByWeek(currentWeek);
+            ArrayList<String> allDay = getEachDayByWeek(currentWeek, year);
             req.setAttribute("current", currentWeek);
             req.setAttribute("days", allDay);
         } else {
 
-            ArrayList<String> allDay = getEachDayByWeek(Integer.parseInt(dateInput));
+            ArrayList<String> allDay = getEachDayByWeek(Integer.parseInt(dateInput), year);
+            req.setAttribute("current", Integer.parseInt(dateInput));
             req.setAttribute("days", allDay);
         }
 
@@ -144,7 +146,7 @@ public class TimeTableController extends HttpServlet {
 
     public static ArrayList<String> getDayFromToByWeek(int year, int weekNumber) {
         Calendar cal = Calendar.getInstance();
-         cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.YEAR, year);
         cal.set(Calendar.WEEK_OF_YEAR, weekNumber);
         cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
         ArrayList<String> list = new ArrayList<>();
