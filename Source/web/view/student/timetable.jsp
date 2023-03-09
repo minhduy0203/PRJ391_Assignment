@@ -32,7 +32,7 @@
 
                     <div class="header-box">${sessionScope.user.student.lastName} ${sessionScope.user.student.firstName}</div>
                     <div class="header-box">Campus Hòa lạc </div>
-                    <div class="header-box">Logout</div>
+                    <div class="header-box" onclick="location.href='${pageContext.request.contextPath}/logout'" style=" cursor: pointer;">Logout</div>
                     <img src="" alt="">
                 </div>
                 <div class="description">
@@ -101,7 +101,7 @@
                                                 <c:forEach items="${listLec}" var="lecture" >
                                                     <c:if test="${loop.index == lecture.timeSlot.slotID }">
                                                         <c:if test="${lecture.weekDay == i.index ? true : false}">
-                                                            <span><strong>${lecture.group.course.code} At ${lecture.room.name}</strong></span><br>
+                                                            <span id="${lecture.lectureID}"><strong>${lecture.group.course.code} At ${lecture.room.name}</strong></span><br>
                                                             <div class="time-label">
                                                                 <fmt:formatDate value="${lecture.timeSlot.timeFrom}" pattern="hh:mm"></fmt:formatDate> -
                                                                 <fmt:formatDate value="${lecture.timeSlot.timeTo}" pattern="hh:mm"></fmt:formatDate>

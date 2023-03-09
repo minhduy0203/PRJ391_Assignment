@@ -115,7 +115,7 @@ public class TimeTableController extends BaseRequiredAuthenticationStudent {
         return currentWeek;
     }
 
-    public static void handleDate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void handleDate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String dateInput = req.getParameter("date");
         String year_raw = req.getParameter("year");
         int year = 2023;

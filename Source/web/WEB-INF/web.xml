@@ -12,6 +12,10 @@
         <servlet-name>LogOutController</servlet-name>
         <servlet-class>controller.authentication.LogOutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AttendanceServlet</servlet-name>
+        <servlet-class>controller.instructor.AttendanceController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TimeTableServlet</servlet-name>
         <url-pattern>/student/time</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>LogOutController</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttendanceServlet</servlet-name>
+        <url-pattern>/instructor/attendance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
