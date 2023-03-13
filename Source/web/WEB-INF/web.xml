@@ -16,6 +16,10 @@
         <servlet-name>AttendanceServlet</servlet-name>
         <servlet-class>controller.instructor.AttendanceController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>controller.home.HomeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TimeTableServlet</servlet-name>
         <url-pattern>/student/time</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>AttendanceServlet</servlet-name>
         <url-pattern>/instructor/attendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

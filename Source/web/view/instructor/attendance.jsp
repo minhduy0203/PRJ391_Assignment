@@ -42,20 +42,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${students}" var="s" varStatus="loop">
+                                <c:forEach items="${atts}" var="a" varStatus="loop">
+                                <input type ="hidden" value="${a.student.studentID}" name="studentID">
                                     <tr>
                                         <td>${loop.index}</td>
                                         <td>
                                             <img src="" alt="">
                                         </td>
-                                        <td>${s.lastName} ${s.firstName} </td>
-                                        <td>${s.rollNumber}</td>
+                                        <td>${a.student.lastName} ${a.student.firstName} </td>
+                                        <td>${a.student.rollNumber}</td>
                                         <td>
-                                            <input type="text" name="comment" id="">
+                                            <input type="text" name="comment" id="" value="${a.comment}">
                                         </td>
                                         <td>
-                                            Attend<input value="attend" type="radio" name="check${loop.index}">
-                                            Absent <input value="absent" type="radio" name="check${loop.index}">
+                                            Attend<input ${a.status ? "checked" : ""} value="attend" type="radio" name="check${loop.index}">
+                                            Absent <input ${!a.status ? "checked" : ""} value="absent" type="radio" name="check${loop.index}">
                                         </td>
                                     </tr>
                                 </c:forEach>

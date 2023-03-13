@@ -28,8 +28,8 @@
 
         <div class="main">
             <div class="container">
-                <div class="header-container">
-
+                <div class="header-container"   >
+                     <div class="header-box" style="cursor: pointer;" onclick="location.href = '../home'">Home </div>
                     <div class="header-box">${sessionScope.user.student.lastName} ${sessionScope.user.student.firstName}</div>
                     <div class="header-box">Campus Hòa lạc </div>
                     <div class="header-box" onclick="location.href='${pageContext.request.contextPath}/logout'" style=" cursor: pointer;">Logout</div>

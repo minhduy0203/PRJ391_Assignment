@@ -28,7 +28,7 @@ public class LoginController extends HttpServlet {
         User s = dbUser.getByUser(user_raw, pass_raw);
         if (s != null) {
             session.setAttribute("user", s);
-            resp.sendRedirect("hello.jsp");
+            resp.sendRedirect("home");
         } else {
             req.setAttribute("error", "Your user or pass word is not correct.");
             req.getRequestDispatcher("view/authentication/login.jsp").forward(req, resp);

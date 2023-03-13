@@ -56,7 +56,7 @@ public class LectureDBContext extends DBContext<Lecture> {
         ArrayList<Lecture> list = new ArrayList<>();
         try {
 
-            String sql = " select Lecture.LectureID,Attendancne.StudentID,Status,Course.Name AS 'CourseName'  , Course.Code ,[Group].Name AS 'GroupName' ,  Room.Name as 'Roomname', Room.RoomID   , TimeSlotID,TimeFrom , TimeTo  , Date  , [Group].CourseID ,[Group].GroupID, DATEPART(WEEKDAY, Date) AS 'WeekDay'  from ((Lecture  \n"
+            String sql = " select Lecture.LectureID,Attendancne.StudentID,Attendancne.Status,Course.Name AS 'CourseName'  , Course.Code ,[Group].Name AS 'GroupName' ,  Room.Name as 'Roomname', Room.RoomID   , TimeSlotID,TimeFrom , TimeTo  , Date  , [Group].CourseID ,[Group].GroupID, DATEPART(WEEKDAY, Date) AS 'WeekDay'  from ((Lecture  \n"
                     + "INNER JOIN Attendancne ON Attendancne.LectureID = Lecture.LectureID\n"
                     + "INNER JOIN TimeSlot ON Lecture.TimeSlotID = TimeSlot.SlotID)\n"
                     + "INNER JOIN [Group] ON Lecture.GroupID = [Group].GroupID \n"
