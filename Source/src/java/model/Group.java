@@ -11,23 +11,23 @@ import java.util.ArrayList;
  * @author MinhDuy
  */
 public class Group {
+
     private int groupID;
     private String name;
     private Course course;
-    private int instructorID;
+    private Instructor instructor;
     private ArrayList<Student> studentGroup;
-
-    public Group(int groupID, String name, Course course, int instructorID, ArrayList<Student> studentGroup) {
-        this.groupID = groupID;
-        this.name = name;
-        this.course = course;
-        this.instructorID = instructorID;
-        this.studentGroup = studentGroup;
-    }
-
-    
+    private ArrayList<Lecture> lecture;
 
     public Group() {
+    }
+
+    public ArrayList<Lecture> getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(ArrayList<Lecture> lecture) {
+        this.lecture = lecture;
     }
     
     
@@ -56,14 +56,12 @@ public class Group {
         this.course = course;
     }
 
-   
-
-    public int getInstructorID() {
-        return instructorID;
+    public Instructor getInstructor() {
+        return instructor;
     }
 
-    public void setInstructorID(int instructorID) {
-        this.instructorID = instructorID;
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     public ArrayList<Student> getStudentGroup() {
@@ -73,6 +71,5 @@ public class Group {
     public void setStudentGroup(ArrayList<Student> studentGroup) {
         this.studentGroup = studentGroup;
     }
-    
-    
+
 }

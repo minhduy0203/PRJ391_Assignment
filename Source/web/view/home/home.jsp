@@ -53,15 +53,19 @@
                                             Welcome to FPT <br> University Portal
                                         </div>
                                         <c:if test="${sessionScope.user.student != null}">
-                                        <div class="timetable">
+                                            <div class="timetable">
 
-                                            <a href="student/time"> Weeklytime table</a>
-                                        </div>
+                                                <a href="student/time"> Weeklytime table</a>
+                                            </div>
                                         </c:if>
                                         <c:if test="${sessionScope.user.instructor != null}" >
                                             <div class="attendance">
 
                                                 <a href=""> Attendance</a>
+                                            </div>
+                                            <div class="timetable">
+
+                                                <a href="instructor/time"> Weeklytime table</a>
                                             </div>
                                         </c:if>
 

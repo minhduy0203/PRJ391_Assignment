@@ -20,6 +20,10 @@
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>controller.home.HomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TimeTableInstructorServlet</servlet-name>
+        <servlet-class>controller.instructor.TimeTableController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TimeTableServlet</servlet-name>
         <url-pattern>/student/time</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TimeTableInstructorServlet</servlet-name>
+        <url-pattern>/instructor/time</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
