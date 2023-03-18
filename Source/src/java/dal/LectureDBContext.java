@@ -174,4 +174,46 @@ public class LectureDBContext extends DBContext<Lecture> {
         return list;
     }
 
+    public ArrayList<Lecture> getAllByStudentGroup(int sid, int gid) {
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        ArrayList<Lecture> list = new ArrayList<>();
+        try {
+
+            String sql = "SELECT a.StudentID , a.Status , l.LectureID , g.GroupID , g.Name + ' ' + c.Name AS 'GroupName' FROM StudentGroup sg INNER JOIN Student s ON s.StudentID =sg.StudentID \n"
+                    + "INNER JOIN [Group] g ON sg.GroupID = g.GroupID INNER JOIN Lecture l ON l.GroupID = g.GroupID\n"
+                    + "INNER JOIN Course c on c.CourseID = g.CourseID\n"
+                    + "INNER JOIN Attendancne a ON l.LectureID = a.LectureID AND s.StudentID = a.StudentID \n"
+                    + "WHERE g.GroupID = ? AND s.StudentID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, gid);
+            stm.setInt(2, sid);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                Lecture l = new Lecture();
+                Boolean b = rs.getObject("Status") != null ? rs.getBoolean("Status") : null;
+
+                Group g = new Group();
+                g.setGroupID(rs.getInt("GroupID"));
+                g.setName(rs.getString("GroupName"));
+                
+                l.setStatus(b);
+                l.setLectureID(rs.getInt("LectureID"));
+                l.setGroup(g);
+                list.add(l);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(LectureDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stm.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(LectureDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
+
 }

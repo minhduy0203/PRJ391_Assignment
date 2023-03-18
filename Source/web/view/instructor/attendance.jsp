@@ -29,6 +29,7 @@
 
                 <form method="post" action="attendance">
                     <input type="hidden" value="${param.id}" name="lectureID">
+                     <input type="hidden" value="${param.groupID}" name="groupID">
                     <div class="table">
                         <table>
                             <thead>

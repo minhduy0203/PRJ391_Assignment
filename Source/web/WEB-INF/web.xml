@@ -24,6 +24,10 @@
         <servlet-name>TimeTableInstructorServlet</servlet-name>
         <servlet-class>controller.instructor.TimeTableController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StatisticServlet</servlet-name>
+        <servlet-class>controller.instructor.GroupAttendCheckController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TimeTableServlet</servlet-name>
         <url-pattern>/student/time</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>TimeTableInstructorServlet</servlet-name>
         <url-pattern>/instructor/time</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StatisticServlet</servlet-name>
+        <url-pattern>/instructor/statistic</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

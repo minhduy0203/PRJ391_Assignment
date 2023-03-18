@@ -110,7 +110,7 @@
                                                                 <c:if test="${lecture.status != null}">
                                                                     ${lecture.status ? "<span style = \"color: green\">attend</span>" : "<span style = \"color: red\" >absent</span>"  }
                                                                 </c:if>
-                                                                <a href="attendance?id=${lecture.lectureID}">Take attend</a>
+                                                                <a href="attendance?id=${lecture.lectureID}&groupID=${lecture.group.groupID}">Take attend</a>
                                                         </c:if>
 
                                                     </c:if>

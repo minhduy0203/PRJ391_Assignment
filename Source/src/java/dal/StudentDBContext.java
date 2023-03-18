@@ -11,6 +11,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Lecture;
 import model.Student;
 
 /**
@@ -123,6 +124,38 @@ public class StudentDBContext extends DBContext<Student> {
         } catch (SQLException ex) {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public ArrayList<Student> getAllStudentByGroup(int groupID) {
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        ArrayList<Student> students = new ArrayList<>();
+        LectureDBContext db = new LectureDBContext();
+        try {
+            String sql = "SELECT * FROM StudentGroup WHERE GroupID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, groupID);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                int sid = rs.getInt("StudentID");
+                Student s = this.get(sid);
+                ArrayList<Lecture> list = db.getAllByStudentGroup(sid, groupID);
+                s.setLecture(list);
+                students.add(s);
+
+            }
+            return students;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stm.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
     }
 
 }

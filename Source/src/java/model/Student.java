@@ -121,4 +121,26 @@ public class Student {
         this.group = group;
     }
 
+    public ArrayList<Lecture> getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(ArrayList<Lecture> lecture) {
+        this.lecture = lecture;
+    }
+    
+    public float precentAbsent() {
+        ArrayList<Lecture> list = this.getLecture();
+        int countAbsent = 0;
+        for (Lecture lecture1 : list) {
+            if (lecture1.getStatus() != null && !lecture1.getStatus()) {
+                countAbsent++;
+            }
+        }
+        float result = (float) countAbsent/ list.size();
+        return result * 100;
+    }
+    
+    
+
 }
