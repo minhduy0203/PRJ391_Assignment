@@ -125,19 +125,13 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <c:forEach items="${listLec}" var="lecture" >
-                    <h1>${lecture.room.name}-${lecture.group.course.code}-${lecture.timeSlot.slotID} -${lecture.timeSlot.timeFrom} - ${lecture.timeSlot.timeTo} - ${lecture.status == null ? "not yet" : (lecture.status ? "attend" : "absent")} - ${lecture.timeSlot.slotID} - ${lecture.weekDay}</h1>
-
-                </c:forEach>
-               
-            </div>
+           
             <div class="footer container">
                 <div class="footer-describe">
                     More note / Chú thích thêm:<br>
-                    <span style="color: green;">(attended)</span>: DuyNMHE172040 had attended this activity / Nguyễn Minh
+                    <span style="color: green;">(attended)</span>: ${sessionScope.user.student.firstName}${sessionScope.user.student.rollNumber} had attended this activity / Nguyễn Minh
                     Duy đã tham gia hoạt động này<br>
-                    <span style="color: rgb(212, 19, 19);">(absent)</span>: DuyNMHE172040 had NOT attended this activity /
+                    <span style="color: rgb(212, 19, 19);">(absent)</span>: ${sessionScope.user.student.firstName}${sessionScope.user.student.rollNumber} had NOT attended this activity /
                     Nguyễn Minh Duy đã vắng mặt buổi này<br>
                     (-): no data was given / chưa có dữ liệu<br>
 

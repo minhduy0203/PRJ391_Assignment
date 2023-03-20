@@ -139,7 +139,7 @@
                 <tbody>
                     <c:forEach items="${requestScope.list}" var="s">
                         <c:set var="percent" value="${s.precentAbsent()}"></c:set>
-                        <tr class="${percent >= 10 && percent < 15  ? "table-warning" :""} ${s.precentAbsent() >= 15 ? "table-danger" :""}" }>
+                        <tr class="${percent >= 10 && percent < 15  ? "table-warning" :""} ${s.precentAbsent() >= 20 ? "table-danger" :""}" }>
                             <td>${s.rollNumber}</td>
                             <td>${s.lastName} ${s.firstName} </td>
                             <td> <fmt:formatNumber type = "number" 
@@ -160,11 +160,10 @@
             var xValues = ["Attend", "Absent"];
             var yValues = [attend, absent];
             var barColors = [
-                "#b91d47",
+
                 "#00aba9",
-                "#2b5797",
-                "#e8c3b9",
-                "#1e7145"
+                "#b91d47"
+
             ];
 
             new Chart("myChart", {
